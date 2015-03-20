@@ -8,7 +8,14 @@ module.exports = function (app) {
   app.use(morgan('dev'));
   app.use(express.static(__dirname + "/../client"));
 
+  var userRouter = express.Router();
+
   app.get('/', function (req, res) {
     res.sendFile('index.html');
   });
+  
+  app.use('/api/users', userRouter);
+
+  
+  require('./users/userRouter')(userRouter);
 };

@@ -1,11 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html ng-app='app'>
 <head>
   <title></title>
 </head>
 <body>
-  
+  hello world
+  <ng-view></ng-view>
   <script src='lib/angular/angular.js'></script>
-  <script src="app.js"></script>
+  <script src='lib/angular-route/angular-route.js'></script>
+
+  <script src="app/services/auth.js"></script>
+
+  <script src="app/login/login.js"></script>
+  <script src="app/signup/signup.js"></script>
+  <script src="app/app.js"></script>
+  
 </body>
 </html>

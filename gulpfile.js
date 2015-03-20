@@ -22,12 +22,13 @@ var paths = {
   dist: 'client/dist'
 }
 
-gulp.task('default', ['lint', 'karma', 'watch']);
+gulp.task('default', [
+  'lint', 'karma', 'watch']);
 
 gulp.task('test', ['mocha', 'karma']);
 
 gulp.task('watch', function(){
-  gulp.watch(paths.scripts, ['lint', 'test']);
+  gulp.watch(paths.scripts, ['lint']);
 });
 
 gulp.task('lint', function () {
@@ -58,7 +59,7 @@ gulp.task('build', function () {
 gulp.task('serve', function () {
   nodemon({
     script: 'index.js',
-    ext: 'html js',
+    ext: 'html, js',
     ignore: ['node_modules']
   })
   .on('change', ['lint', 'mocha'])
